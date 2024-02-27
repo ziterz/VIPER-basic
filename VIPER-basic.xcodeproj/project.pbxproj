@@ -18,6 +18,13 @@
 		7530FC122B8E3AF20038C625 /* MoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC112B8E3AF20038C625 /* MoviePresenter.swift */; };
 		7530FC142B8E3AF80038C625 /* MovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC132B8E3AF80038C625 /* MovieInteractor.swift */; };
 		7530FC182B8E3B410038C625 /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC172B8E3B410038C625 /* MovieRouter.swift */; };
+		7530FC262B8E43A50038C625 /* InteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC252B8E43A50038C625 /* InteractorProtocol.swift */; };
+		7530FC282B8E43AD0038C625 /* PresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC272B8E43AD0038C625 /* PresenterProtocol.swift */; };
+		7530FC2A2B8E43C80038C625 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC292B8E43C80038C625 /* ViewProtocol.swift */; };
+		7530FC2C2B8E44EB0038C625 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC2B2B8E44EB0038C625 /* RouterProtocol.swift */; };
+		7530FC2E2B8E451E0038C625 /* MovieProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC2D2B8E451E0038C625 /* MovieProtocol.swift */; };
+		7530FC302B8E4A950038C625 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC2F2B8E4A950038C625 /* AppRouter.swift */; };
+		7530FC322B8E4B3A0038C625 /* MovieBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC312B8E4B3A0038C625 /* MovieBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +60,13 @@
 		7530FC112B8E3AF20038C625 /* MoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePresenter.swift; sourceTree = "<group>"; };
 		7530FC132B8E3AF80038C625 /* MovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInteractor.swift; sourceTree = "<group>"; };
 		7530FC172B8E3B410038C625 /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
+		7530FC252B8E43A50038C625 /* InteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorProtocol.swift; sourceTree = "<group>"; };
+		7530FC272B8E43AD0038C625 /* PresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocol.swift; sourceTree = "<group>"; };
+		7530FC292B8E43C80038C625 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		7530FC2B2B8E44EB0038C625 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		7530FC2D2B8E451E0038C625 /* MovieProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProtocol.swift; sourceTree = "<group>"; };
+		7530FC2F2B8E4A950038C625 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		7530FC312B8E4B3A0038C625 /* MovieBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +147,7 @@
 		7530FC0D2B8E3AB80038C625 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7530FC232B8E43970038C625 /* Base */,
 				7530FC0E2B8E3AC20038C625 /* MovieModule */,
 			);
 			path = Modules;
@@ -143,8 +158,10 @@
 			children = (
 				7530FC132B8E3AF80038C625 /* MovieInteractor.swift */,
 				7530FC112B8E3AF20038C625 /* MoviePresenter.swift */,
+				7530FC2D2B8E451E0038C625 /* MovieProtocol.swift */,
 				7530FC172B8E3B410038C625 /* MovieRouter.swift */,
 				7530FC0F2B8E3AE80038C625 /* MovieViewController.swift */,
+				7530FC312B8E4B3A0038C625 /* MovieBuilder.swift */,
 			);
 			path = MovieModule;
 			sourceTree = "<group>";
@@ -177,8 +194,28 @@
 			children = (
 				7530FBDD2B8E37C10038C625 /* AppDelegate.swift */,
 				7530FBDF2B8E37C10038C625 /* SceneDelegate.swift */,
+				7530FC2F2B8E4A950038C625 /* AppRouter.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		7530FC232B8E43970038C625 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7530FC242B8E439B0038C625 /* Protocols */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		7530FC242B8E439B0038C625 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7530FC252B8E43A50038C625 /* InteractorProtocol.swift */,
+				7530FC272B8E43AD0038C625 /* PresenterProtocol.swift */,
+				7530FC2B2B8E44EB0038C625 /* RouterProtocol.swift */,
+				7530FC292B8E43C80038C625 /* ViewProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +283,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
+				ORGANIZATIONNAME = ziterz.dev;
 				TargetAttributes = {
 					7530FBD92B8E37C10038C625 = {
 						CreatedOnToolsVersion = 15.2;
@@ -313,7 +351,14 @@
 			files = (
 				7530FC142B8E3AF80038C625 /* MovieInteractor.swift in Sources */,
 				7530FC182B8E3B410038C625 /* MovieRouter.swift in Sources */,
+				7530FC262B8E43A50038C625 /* InteractorProtocol.swift in Sources */,
 				7530FBDE2B8E37C10038C625 /* AppDelegate.swift in Sources */,
+				7530FC2C2B8E44EB0038C625 /* RouterProtocol.swift in Sources */,
+				7530FC2E2B8E451E0038C625 /* MovieProtocol.swift in Sources */,
+				7530FC2A2B8E43C80038C625 /* ViewProtocol.swift in Sources */,
+				7530FC282B8E43AD0038C625 /* PresenterProtocol.swift in Sources */,
+				7530FC322B8E4B3A0038C625 /* MovieBuilder.swift in Sources */,
+				7530FC302B8E4A950038C625 /* AppRouter.swift in Sources */,
 				7530FBE02B8E37C10038C625 /* SceneDelegate.swift in Sources */,
 				7530FC122B8E3AF20038C625 /* MoviePresenter.swift in Sources */,
 				7530FC102B8E3AE80038C625 /* MovieViewController.swift in Sources */,
