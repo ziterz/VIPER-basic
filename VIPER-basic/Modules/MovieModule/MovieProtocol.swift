@@ -6,7 +6,11 @@
 //  Copyright © 2024 ziterz.dev. All rights reserved.
 //
 
-protocol MovieViewProtocol: ViewProtocol { }
-protocol MovieInteractorProtocol: InteractorProtocol { }
+protocol MovieViewProtocol: ViewProtocol {
+  var presenter: MoviePresenterProtocol! { get }
+}
+protocol MovieInteractorProtocol: InteractorProtocol {
+  func getMovies()
+}
 protocol MoviePresenterProtocol: PresenterProtocol { }
 protocol MovieRouterProtocol: RouterProtocol { }

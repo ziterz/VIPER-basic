@@ -25,6 +25,7 @@
 		7530FC2E2B8E451E0038C625 /* MovieProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC2D2B8E451E0038C625 /* MovieProtocol.swift */; };
 		7530FC302B8E4A950038C625 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC2F2B8E4A950038C625 /* AppRouter.swift */; };
 		7530FC322B8E4B3A0038C625 /* MovieBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC312B8E4B3A0038C625 /* MovieBuilder.swift */; };
+		7530FC372B8E52410038C625 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC362B8E52410038C625 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		7530FC2D2B8E451E0038C625 /* MovieProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProtocol.swift; sourceTree = "<group>"; };
 		7530FC2F2B8E4A950038C625 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		7530FC312B8E4B3A0038C625 /* MovieBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBuilder.swift; sourceTree = "<group>"; };
+		7530FC362B8E52410038C625 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +122,6 @@
 				7530FC1E2B8E3CA40038C625 /* App */,
 				7530FC192B8E3B910038C625 /* Entities */,
 				7530FC0D2B8E3AB80038C625 /* Modules */,
-				7530FC1A2B8E3B970038C625 /* Network */,
 				7530FC1D2B8E3C900038C625 /* Resources */,
 				7530FBEB2B8E37C20038C625 /* Info.plist */,
 			);
@@ -169,15 +170,9 @@
 		7530FC192B8E3B910038C625 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				7530FC332B8E522B0038C625 /* Models */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		7530FC1A2B8E3B970038C625 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		7530FC1D2B8E3C900038C625 /* Resources */ = {
@@ -216,6 +211,14 @@
 				7530FC292B8E43C80038C625 /* ViewProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7530FC332B8E522B0038C625 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7530FC362B8E52410038C625 /* Movie.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7530FC372B8E52410038C625 /* Movie.swift in Sources */,
 				7530FC142B8E3AF80038C625 /* MovieInteractor.swift in Sources */,
 				7530FC182B8E3B410038C625 /* MovieRouter.swift in Sources */,
 				7530FC262B8E43A50038C625 /* InteractorProtocol.swift in Sources */,

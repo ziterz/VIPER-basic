@@ -12,6 +12,12 @@ final class MoviePresenter {
   private let interactor: MovieInteractorProtocol
   private let router: MovieRouterProtocol
   
+  private var movies: [Movie] = [] {
+    didSet {
+      view.reloadData()
+    }
+  }
+  
   // MARK: Lifecycle
   init(view: MovieViewProtocol, interactor: MovieInteractorProtocol, router: MovieRouterProtocol) {
     self.view = view
