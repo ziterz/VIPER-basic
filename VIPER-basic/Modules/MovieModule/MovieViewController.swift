@@ -39,10 +39,10 @@ final class MovieViewController: UIViewController {
     view.addSubview(collection)
     
     collection.translatesAutoresizingMaskIntoConstraints = false
-    collection.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-    collection.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-    collection.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
-    collection.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
+    collection.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+    collection.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+    collection.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
+    collection.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
   }
   
   private func reloadData() {
@@ -94,7 +94,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     label.heightAnchor.constraint(equalToConstant: 50).isActive = true
     label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
-    label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5).isActive = true
+    label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
   }
 }
 
@@ -103,11 +103,7 @@ extension MovieViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     let layout = collectionViewLayout as? UICollectionViewFlowLayout
     let space: CGFloat = (layout?.minimumInteritemSpacing ?? 0.0) + (layout?.sectionInset.left ?? 0.0) + (layout?.sectionInset.right ?? 0.0)
     let size: CGFloat = (collection.frame.size.width - space) / 2.0
-    return CGSize(width: size - 16, height: size + 80)
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+    return CGSize(width: size, height: size + 80)
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
