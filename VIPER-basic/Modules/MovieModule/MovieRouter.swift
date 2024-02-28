@@ -20,6 +20,7 @@ final class MovieRouter: MovieRouterProtocol {
     let router = MovieRouter(view: view)
     let interactor = MovieInteractor()
     let presenter = MoviePresenter(view: view, interactor: interactor, router: router)
+    interactor.delegate = presenter
     view.presenter = presenter
     return view
   }

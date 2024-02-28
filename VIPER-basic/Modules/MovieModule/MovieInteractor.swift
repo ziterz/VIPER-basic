@@ -12,6 +12,8 @@ final class MovieInteractor {
   // MARK: Properties
   weak var delegate: MovieInteractorDelegate?
   
+  private var movies: [Movie] = []
+  
   func load() {
     getMovies()
   }
@@ -26,8 +28,8 @@ final class MovieInteractor {
       
       do {
         let movies = try JSONDecoder().decode([Movie].self, from: data)
+        self.movies = movies
         self.delegate?.handleOutput(movies)
-        print(movies)
       } catch {
         print("Error parsing to JSON")
       }
