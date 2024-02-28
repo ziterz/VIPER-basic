@@ -14,7 +14,7 @@ final class MoviePresenter {
   
   private var movies: [Movie] = [] {
     didSet {
-      view.reloadData()
+      
     }
   }
   

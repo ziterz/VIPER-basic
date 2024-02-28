@@ -9,4 +9,6 @@
 final class MovieInteractor { }
 
 // MARK: Extensions
-extension MovieInteractor: MovieInteractorProtocol { }
+extension MovieInteractor: MovieInteractorProtocol {
+  func getMovies() { }
+}

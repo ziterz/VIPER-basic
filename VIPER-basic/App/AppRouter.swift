@@ -16,7 +16,7 @@ final class AppRouter {
   }
   
   func start() {
-    let viewController = MovieBuilder.make()
+    let viewController = MovieRouter.make()
     let nav = UINavigationController(rootViewController: viewController)
     window.rootViewController = nav
     window.makeKeyAndVisible()

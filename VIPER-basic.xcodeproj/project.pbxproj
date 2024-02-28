@@ -24,7 +24,6 @@
 		7530FC2C2B8E44EB0038C625 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC2B2B8E44EB0038C625 /* RouterProtocol.swift */; };
 		7530FC2E2B8E451E0038C625 /* MovieProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC2D2B8E451E0038C625 /* MovieProtocol.swift */; };
 		7530FC302B8E4A950038C625 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC2F2B8E4A950038C625 /* AppRouter.swift */; };
-		7530FC322B8E4B3A0038C625 /* MovieBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC312B8E4B3A0038C625 /* MovieBuilder.swift */; };
 		7530FC372B8E52410038C625 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530FC362B8E52410038C625 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +66,6 @@
 		7530FC2B2B8E44EB0038C625 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		7530FC2D2B8E451E0038C625 /* MovieProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProtocol.swift; sourceTree = "<group>"; };
 		7530FC2F2B8E4A950038C625 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
-		7530FC312B8E4B3A0038C625 /* MovieBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBuilder.swift; sourceTree = "<group>"; };
 		7530FC362B8E52410038C625 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,7 +160,6 @@
 				7530FC2D2B8E451E0038C625 /* MovieProtocol.swift */,
 				7530FC172B8E3B410038C625 /* MovieRouter.swift */,
 				7530FC0F2B8E3AE80038C625 /* MovieViewController.swift */,
-				7530FC312B8E4B3A0038C625 /* MovieBuilder.swift */,
 			);
 			path = MovieModule;
 			sourceTree = "<group>";
@@ -361,7 +358,6 @@
 				7530FC2E2B8E451E0038C625 /* MovieProtocol.swift in Sources */,
 				7530FC2A2B8E43C80038C625 /* ViewProtocol.swift in Sources */,
 				7530FC282B8E43AD0038C625 /* PresenterProtocol.swift in Sources */,
-				7530FC322B8E4B3A0038C625 /* MovieBuilder.swift in Sources */,
 				7530FC302B8E4A950038C625 /* AppRouter.swift in Sources */,
 				7530FBE02B8E37C10038C625 /* SceneDelegate.swift in Sources */,
 				7530FC122B8E3AF20038C625 /* MoviePresenter.swift in Sources */,
