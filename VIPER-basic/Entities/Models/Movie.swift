@@ -9,10 +9,5 @@
 import Foundation
 
 struct Movie: Codable {
-  let id: String
-  let originalTitle: String
-}
-
-struct Popular: Codable {
-  let results: [Movie]
+  let name: String
 }

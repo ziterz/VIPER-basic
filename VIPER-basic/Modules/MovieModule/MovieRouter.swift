@@ -9,14 +9,18 @@
 import UIKit
 
 final class MovieRouter: MovieRouterProtocol {
-  var presenter: MoviePresenterProtocol?
+  private weak var view: UIViewController?
   
-  static func make() -> MovieViewController {
-    let vc = MovieViewController()
-    let router = MovieRouter()
+  init(view: UIViewController) {
+    self.view = view
+  }
+  
+  static func make() -> UIViewController {
+    let view = MovieViewController()
+    let router = MovieRouter(view: view)
     let interactor = MovieInteractor()
-    let presenter = MoviePresenter(view: vc, interactor: interactor, router: router)
-    vc.presenter = presenter
-    return vc
+    let presenter = MoviePresenter(view: view, interactor: interactor, router: router)
+    view.presenter = presenter
+    return view
   }
 }

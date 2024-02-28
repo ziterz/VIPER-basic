@@ -8,15 +8,9 @@
 
 final class MoviePresenter {
   // MARK: Properties
-  var view: MovieViewProtocol?
-  var interactor: MovieInteractorProtocol?
-  var router: MovieRouterProtocol?
-  
-  private var movies: [Movie] = [] {
-    didSet {
-      
-    }
-  }
+  private weak var view: MovieViewProtocol?
+  private let interactor: MovieInteractorProtocol?
+  private let router: MovieRouterProtocol?
   
   // MARK: Lifecycle
   init(view: MovieViewProtocol, interactor: MovieInteractorProtocol, router: MovieRouterProtocol) {
@@ -24,7 +18,15 @@ final class MoviePresenter {
     self.interactor = interactor
     self.router = router
   }
+  
+  func load() {
+    interactor?.load()
+  }
+  
+  func handleOutput(_ output: [Movie]) {
+    view?.handleOutput(output)
+  }
 }
 
 //MARK: Extensions
-extension MoviePresenter: MoviePresenterProtocol { }
+extension MoviePresenter: MoviePresenterProtocol, MovieInteractorDelegate { }

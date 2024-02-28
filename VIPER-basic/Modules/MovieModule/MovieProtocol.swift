@@ -8,27 +8,25 @@
 
 // MARK: View
 protocol MovieViewProtocol: ViewProtocol {
-  var presenter: MoviePresenterProtocol? { get }
+  func handleOutput(_ output: [Movie])
 }
 
 // MARK: Interactor
 protocol MovieInteractorProtocol: InteractorProtocol {
-  var presenter: MoviePresenterProtocol? { get set }
+  var delegate: MovieInteractorDelegate? { get set }
   
   func load()
   func getMovies()
 }
 
+protocol MovieInteractorDelegate: AnyObject {
+  func handleOutput(_ output: [Movie])
+}
+
 // MARK: Presenter
 protocol MoviePresenterProtocol: PresenterProtocol {
-  var view: MovieViewProtocol? { get set }
-  var interactor: MovieInteractorProtocol? { get set }
-  var router: MovieRouterProtocol? { get set }
-  
   func load()
 }
 
 // MARK: Router
-protocol MovieRouterProtocol: RouterProtocol {
-  var presenter: MoviePresenterProtocol? { get set }
-}
+protocol MovieRouterProtocol: RouterProtocol { }

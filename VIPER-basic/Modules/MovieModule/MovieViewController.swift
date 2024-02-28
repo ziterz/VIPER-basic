@@ -10,13 +10,17 @@ import UIKit
 
 final class MovieViewController: UIViewController {
   // MARK: Properties
-  var presenter: MoviePresenterProtocol?
+  internal var presenter: MoviePresenterProtocol?
   
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     view.backgroundColor = .systemPurple
+    presenter?.load()
+  }
+  
+  func handleOutput(_ output: [Movie]) {
+    print(output)
   }
 }
 
