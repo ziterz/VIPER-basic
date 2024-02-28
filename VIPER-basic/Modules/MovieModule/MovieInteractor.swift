@@ -19,7 +19,7 @@ final class MovieInteractor {
   }
   
   func getMovies() { 
-    guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
+    guard let url = URL(string: "https://jsonplaceholder.typicode.com/photos?_start=0&_limit=100") else { return }
     let task = URLSession.shared.dataTask(with: url) { data, _, error in
       guard let data = data, error == nil else {
         print("Fetch error")

@@ -9,5 +9,6 @@
 import Foundation
 
 struct Movie: Codable {
-  let name: String
+  let title: String
+  let url: String
 }
