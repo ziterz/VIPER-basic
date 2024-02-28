@@ -7,10 +7,10 @@
 //
 
 final class MoviePresenter {
-  // MARK: Private properties
-  private unowned let view: MovieViewProtocol
-  private let interactor: MovieInteractorProtocol
-  private let router: MovieRouterProtocol
+  // MARK: Properties
+  var view: MovieViewProtocol?
+  var interactor: MovieInteractorProtocol?
+  var router: MovieRouterProtocol?
   
   private var movies: [Movie] = [] {
     didSet {

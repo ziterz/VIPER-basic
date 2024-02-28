@@ -9,8 +9,8 @@
 import UIKit
 
 final class MovieViewController: UIViewController {
-  // MARK: Public properties
-  var presenter: MoviePresenterProtocol!
+  // MARK: Properties
+  var presenter: MoviePresenterProtocol?
   
   // MARK: Lifecycle
   override func viewDidLoad() {
@@ -18,7 +18,6 @@ final class MovieViewController: UIViewController {
     
     view.backgroundColor = .systemPurple
   }
-  
 }
 
 // MARK: Extensions

@@ -6,9 +6,12 @@
 //  Copyright © 2024 ziterz.dev. All rights reserved.
 //
 
-final class MovieInteractor { }
-
-// MARK: Extensions
-extension MovieInteractor: MovieInteractorProtocol {
+final class MovieInteractor {
+  // MARK: Properties
+  var presenter: MoviePresenterProtocol?
+  
   func getMovies() { }
 }
+
+// MARK: Extensions
+extension MovieInteractor: MovieInteractorProtocol { }

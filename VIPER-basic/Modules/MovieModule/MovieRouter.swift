@@ -9,6 +9,8 @@
 import UIKit
 
 final class MovieRouter: MovieRouterProtocol {
+  var presenter: MoviePresenterProtocol?
+  
   static func make() -> MovieViewController {
     let vc = MovieViewController()
     let router = MovieRouter()
