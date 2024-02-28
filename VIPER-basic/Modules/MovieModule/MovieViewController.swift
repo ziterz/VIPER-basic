@@ -33,17 +33,16 @@ final class MovieViewController: UIViewController {
     collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
     guard let collection = collection else { return }
     collection.backgroundColor = .systemBackground
-    collection.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
+    collection.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     collection.dataSource = self
     collection.delegate  = self
     view.addSubview(collection)
+    
     collection.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      collection.topAnchor.constraint(equalTo: self.view.topAnchor),
-      collection.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-      collection.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-      collection.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-    ])
+    collection.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+    collection.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    collection.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+    collection.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
   }
   
   private func reloadData() {
@@ -63,47 +62,63 @@ extension MovieViewController: MovieViewProtocol {
 
 // MARK: CustomCollectionViewCell
 class CustomCollectionViewCell: UICollectionViewCell {
-  static let identifier = "CustomCollectionViewCell"
-  
-  let myImageView: UIImageView = {
+  let imageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFill
-    imageView.image = UIImage(systemName: "questionmark")
-    imageView.tintColor = .black
     imageView.clipsToBounds = true
     return imageView
   }()
   
-  public func configure(with url: URL) {
-    self.myImageView.kf.setImage(with: url)
-    self.addSubview(myImageView)
-    myImageView.translatesAutoresizingMaskIntoConstraints = false
-    
-    NSLayoutConstraint.activate([
-      myImageView.topAnchor.constraint(equalTo: self.topAnchor),
-      myImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-      myImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      myImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-    ])
-  }
+  let label: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.textColor = .black
+    label.font = .systemFont(ofSize: 24)
+    label.textAlignment = .center
+    return label
+  }()
   
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    self.myImageView.image = nil
+  public func configure(with data: Movie) {
+    let url = URL(string: data.url)!
+    self.imageView.kf.setImage(with: url)
+    self.label.text = data.title
+    self.addSubview(imageView)
+    self.addSubview(label)
+    
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+    imageView.bottomAnchor.constraint(equalTo: label.topAnchor, constant: 0).isActive = true
+    imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+    imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+    
+    label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+    label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+    label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5).isActive = true
   }
 }
 
-extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MovieViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let layout = collectionViewLayout as? UICollectionViewFlowLayout
+    let space: CGFloat = (layout?.minimumInteritemSpacing ?? 0.0) + (layout?.sectionInset.left ?? 0.0) + (layout?.sectionInset.right ?? 0.0)
+    let size: CGFloat = (collection.frame.size.width - space) / 2.0
+    return CGSize(width: size - 16, height: size + 80)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+  }
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return movies.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else {
-      fatalError("Failed to dequeue CustomCollectionViewCell in MoviewViewController")
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomCollectionViewCell else {
+      fatalError("Failed to dequeue CustomCollectionViewCell in MovieViewController")
     }
-    let url = URL(string: movies[indexPath.item].url)!
-    cell.configure(with: url)
+    cell.configure(with: movies[indexPath.item])
     return cell
   }
   
