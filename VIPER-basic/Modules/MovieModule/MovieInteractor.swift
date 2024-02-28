@@ -10,6 +10,10 @@ final class MovieInteractor {
   // MARK: Properties
   var presenter: MoviePresenterProtocol?
   
+  func load() {
+    getMovies()
+  }
+  
   func getMovies() { }
 }
 
